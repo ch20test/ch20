@@ -5,7 +5,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.ui.Model;
 
 import com.po.Goods;
-
+import org.springframework.ui.Model;
 public interface AdminGoodsService {
 	//分页查询商品
 	public String selectGoodsService(Model model,Integer pageCur,String act);

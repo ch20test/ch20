@@ -21,5 +21,7 @@ public interface AdminGoodsDao {
 	public Goods selectGoodsById(Integer id);
 	//添加商品
 	public int addGoods(Goods goods);
+	//修改商品
+	public int updateGoodsById(Goods goods);
 
 }

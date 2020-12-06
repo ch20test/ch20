@@ -55,7 +55,10 @@ public class AdminGoodsServiceImpl implements AdminGoodsService {
 		model.addAttribute("totalPage", totalPage);
 		model.addAttribute("pageCur", pageCur);
 		
-		
+		//act=updateSelect
+		if("updateSelect".equals(act)){
+			return "admin/updateSelectGoods";
+		}
 		return "admin/selectGoods";
 	}
 	
@@ -66,11 +69,14 @@ public class AdminGoodsServiceImpl implements AdminGoodsService {
 	public String selectAGoodsService(Model model, Integer id, String act) {
 		Goods agoods = adminGoodsDao.selectGoodsById(id);
 		model.addAttribute("agoods", agoods);
+		if("updateAgoods".equals(act)){
+			return "admin/updateAgoods";
+		}
 		return "admin/goodsDetail";
 	}
 	
 	/**
-	 * 添加商品
+	 * 添加或修改商品
 	 */
 	@Override
 	public String addOrUpdateGoodsService(Goods goods, HttpServletRequest request, String updateAct) {
@@ -95,6 +101,13 @@ public class AdminGoodsServiceImpl implements AdminGoodsService {
 	        } catch (Exception e){
 	        	e.printStackTrace();
 	        }
+		}
+		if("update".equals(updateAct)){
+			if(adminGoodsDao.updateGoodsById(goods)>0){
+				return "forward:/adminGoods/selectGoods?updateSelectGoods";
+			}else{
+				return "admin/updateAgoods";
+			}
 		}
 		if(adminGoodsDao.addGoods(goods)>0){
 			//转发到控制层的查询
