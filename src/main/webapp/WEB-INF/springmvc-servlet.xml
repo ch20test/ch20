@@ -56,14 +56,7 @@
 		<property name="suffix" value=".jsp" />
 	</bean>
 	
-	<!-- 配置拦截器 -->	
-	<mvc:interceptors>
-		<mvc:interceptor>
-			<!-- 配置拦截器作用的路径 -->
-			<mvc:mapping path="/**"/>
-			<bean class="interceptor.LoginInterceptor"></bean>
-		</mvc:interceptor>
-	</mvc:interceptors>
+
 		
 	<!--文件上传配置-->
 	<bean id="multipartResolver"  

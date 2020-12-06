@@ -25,4 +25,3 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
        	<mapper resource="com/mapper/before/UserCenterMapper.xml"/>
  	</mappers>
 </configuration>
-
