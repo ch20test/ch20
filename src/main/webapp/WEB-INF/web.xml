@@ -5,6 +5,22 @@ xmlns="http://xmlns.jcp.org/xml/ns/javaee"
 xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" 
 id="WebApp_ID" version="3.1">
 
+<!-- 实例化ApplicationContext容器 -->
+	<context-param>
+  		<!-- 加载src目录下的applicationContext.xml文件 -->
+  		<param-name>contextConfigLocation</param-name>
+  		<param-value>
+  			classpath:applicationContext.xml
+  		</param-value>
+  	</context-param>
+
+<!-- 指定以ContextLoaderListener方式启动Spring容器 -->
+  	<listener>
+  		<listener-class>
+  			org.springframework.web.context.ContextLoaderListener
+  		</listener-class>
+  	</listener>
+
 <!-- Spring字符集过滤器 -->
 	<filter>
 		<filter-name>EncodingFilter</filter-name>
@@ -22,6 +38,8 @@ id="WebApp_ID" version="3.1">
 		<filter-name>EncodingFilter</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
+	
+	
 	
 <!--部署DispatcherServlet-->
 <servlet>
