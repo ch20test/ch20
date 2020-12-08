@@ -6,22 +6,12 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
     <typeAliases>
         <typeAlias alias="Auser" type="com.po.Auser"/>
         <typeAlias alias="Goods" type="com.po.Goods"/>
-        <typeAlias alias="GoodsType" type="com.po.GoodsType"/>
-        <typeAlias alias="Notice" type="com.po.Notice"/>
         <typeAlias alias="Buser" type="com.po.Buser"/>
-        <typeAlias alias="Order" type="com.po.Order"/>
      </typeAliases>
 	 <mappers>
         <mapper resource="com/mapper/admin/AdminGoodsMapper.xml"/>
-        <mapper resource="com/mapper/admin/AdminMapper.xml"/>
-        <mapper resource="com/mapper/admin/AdminTypeMapper.xml"/>
-        <mapper resource="com/mapper/admin/AdminNoticeMapper.xml"/>
-        <mapper resource="com/mapper/admin/AdminUserMapper.xml"/>
        	<mapper resource="com/mapper/admin/AdminOrderMapper.xml"/>
-        <mapper resource="com/mapper/before/IndexMapper.xml"/>
+       	<mapper resource="com/mapper/admin/AdminMapper.xml"/>
         <mapper resource="com/mapper/before/UserMapper.xml"/>
-        <mapper resource="com/mapper/before/CartMapper.xml"/>
-       	<mapper resource="com/mapper/before/OrderMapper.xml"/>
-       	<mapper resource="com/mapper/before/UserCenterMapper.xml"/>
  	</mappers>
 </configuration>
