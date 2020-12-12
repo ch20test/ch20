@@ -5,20 +5,20 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <!-- AdminGoodsDao接口的实现-->
 <mapper namespace="com.dao.AdminGoodsDao">
 	<!-- 查询所有商品 -->
-	<select id="selectGoods" resultType="Goods">
+	<select id="selectGoods" resultType="com.po.Goods">
 		select * from goodstable
 	</select>
 	<!-- 分页查询商品 -->
-	<select id="selectAllGoodsByPage" resultType="Goods" parameterType="map">
+	<select id="selectAllGoodsByPage" resultType="com.po.Goods" parameterType="map">
 		select * from goodstable order by id limit #{startIndex},#{perPageSize}
 	</select>
-	<!-- 商品详情，根据id查找商品 -->
-	<select id="selectGoodsById" resultType="Goods" parameterType="Integer">
+	<!-- 根据id查找商品 -->
+	<select id="selectGoodsById" resultType="com.po.Goods" parameterType="Integer">
 		select goodstable.*,goodstype.typename from goodstable,goodstype
 		where goodstable.id=#{id} and goodstable.goodstype_id=goodstype.id
 	</select>
 	<!-- 添加商品 -->
-	<insert id="addGoods" parameterType="Goods">
+	<insert id="addGoods" parameterType="com.po.Goods">
 		insert into goodstable (id,gname,goprice,grprice,gstore,gpicture,goodstype_id)
 		values (null,#{gname},#{goprice},#{grprice},#{gstore},#{gpicture},#{goodstype_id})
 	</insert>
@@ -47,4 +47,26 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     </set>
     	where id = #{id}
   </update>
+  <!-- 删除多个商品 -->
+	<delete id="deleteGoods"  parameterType="List">
+		delete from goodstable where id in
+		<foreach item="item" index="index" collection="list"
+		open="(" separator="," close=")">
+			#{item}
+		</foreach>
+	</delete>
+	<!-- 删除单个商品 -->
+	<delete id="deleteAGoods" parameterType="Integer">
+		delete from goodstable where id=#{id}
+	</delete>
+  <!-- 查询关联商品 -->
+  <select id="selectCartGoods" parameterType="Integer" resultType="map">
+  	select * from carttable where goodstable_id=#{id}
+  </select>
+  <select id="selectFocusGoods" parameterType="Integer" resultType="map">
+  	select * from focustable where goodstable_id=#{id}
+  </select>
+  <select id="selectOrderdetailGoods" parameterType="Integer" resultType="map">
+  	select * from orderdetail where goodstable_id=#{id}
+  </select>
 </mapper>

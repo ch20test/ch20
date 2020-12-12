@@ -8,22 +8,27 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form:form  modelAttribute="goods" action="adminGoods/addGoods" method="post">
+<form:form  modelAttribute="goods" action="${pageContext.request.contextPath}/adminGoods/addGoods" method="post" enctype="multipart/form-data">
+<table border=1 style="border-collapse: collapse">
 	<tr>
 		<td>名称</td>
 		<td><form:input path="gname"/></td>
+		<td><form:errors path="gname"></form:errors></td>
 	</tr>
 	<tr>
 		<td>原价</td>
 		<td><form:input path="goprice"/></td>
+		<td><form:errors path="goprice"></form:errors></td>
 	</tr>
 	<tr>
 		<td>折扣价</td>
 		<td><form:input path="grprice"/></td>
+		<td><form:errors path="grprice"></form:errors></td>
 	</tr>
 	<tr>
 		<td>库存</td>
 		<td><form:input path="gstore"/></td>
+		<td><form:errors path="gstore"></form:errors></td>
 	</tr>
 	<tr>
 		<td>图片</td>
@@ -41,6 +46,7 @@
 		<td align="center"><input type="submit" value="提交"></td>
 		<td align="center"><input type="reset" value="重置"></td>
 	</tr>
+</table>
 </form:form>
 </body>
 </html>

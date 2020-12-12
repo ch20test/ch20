@@ -1,23 +1,32 @@
 package com.service.admin;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 
+import com.controller.admin.AdminGoodsController;
 import com.dao.AdminGoodsDao;
 import com.po.Goods;
 import com.util.MyUtil;
+
 @Service("adminGoodsService")
 @Transactional
 public class AdminGoodsServiceImpl implements AdminGoodsService {
+	private static final Log logger = LogFactory.getLog(AdminGoodsController.class);
 	@Autowired
 	private AdminGoodsDao adminGoodsDao;
 	/**
@@ -47,7 +56,7 @@ public class AdminGoodsServiceImpl implements AdminGoodsService {
 		//分页查询
 		Map<String,Object> map = new HashMap<String,Object>();
 		//起始位置，从0开始
-		map.put("startIndes", (pageCur-1)*10);
+		map.put("startIndex", (pageCur-1)*10);
 		//每页10条记录
 		map.put("perPageSize", 10);
 		allgoods = adminGoodsDao.selectAllGoodsByPage(map);
@@ -55,11 +64,17 @@ public class AdminGoodsServiceImpl implements AdminGoodsService {
 		model.addAttribute("totalPage", totalPage);
 		model.addAttribute("pageCur", pageCur);
 		
-		//act=updateSelect
-		if("updateSelect".equals(act)){
-			return "admin/updateSelectGoods";
+		//根据act返回不同界面
+		//删除查询
+		if("deleteSelect".equals(act)){
+			return "admin/deleteSelectGoods";
 		}
-		return "admin/selectGoods";
+		//修改查询
+		else if("updateSelect".equals(act)){
+			return "admin/updateSelectGoods";
+		}else{
+			return "admin/selectGoods";
+		}
 	}
 	
 	/**
@@ -68,11 +83,14 @@ public class AdminGoodsServiceImpl implements AdminGoodsService {
 	@Override
 	public String selectAGoodsService(Model model, Integer id, String act) {
 		Goods agoods = adminGoodsDao.selectGoodsById(id);
-		model.addAttribute("agoods", agoods);
+		model.addAttribute("goods", agoods);
 		if("updateAgoods".equals(act)){
+			//修改商品页面
 			return "admin/updateAgoods";
+		}else{
+			//商品详情页面
+			return "admin/goodsDetail";
 		}
-		return "admin/goodsDetail";
 	}
 	
 	/**
@@ -102,21 +120,76 @@ public class AdminGoodsServiceImpl implements AdminGoodsService {
 	        	e.printStackTrace();
 	        }
 		}
+		//修改，updateAct不能与act重名，因为使用了转发
 		if("update".equals(updateAct)){
-			if(adminGoodsDao.updateGoodsById(goods)>0){
-				return "forward:/adminGoods/selectGoods?updateSelectGoods";
+			int id = goods.getId();
+//			logger.info("修改页面");
+			//修改到数据库
+			if(adminGoodsDao.updateGoodsById(goods) > 0){
+				logger.info("修改成功");
+				return "forward:/adminGoods/selectGoods?act=updateSelect";
 			}else{
-				return "admin/updateAgoods";
-			}
-		}
-		if(adminGoodsDao.addGoods(goods)>0){
-			//转发到控制层的查询
-			return "forward:/adminGoods/selectGoods";
-		}else{
-			//不知道这是哪里
-			return "card/addcard";
+					logger.info(id);
+					logger.info("修改失败");
+					return "admin/updateAgoods";
+			     }
+		}else{//添
+			//保存到数据库
+			if(adminGoodsDao.addGoods(goods) > 0){
+				//转发到查询的controller
+				logger.info("添加成功");
+				return "forward:/adminGoods/selectGoods";
+			}else{
+				return "card/addCard";
+				 }
 		}
 		
+	}
+	/**
+	 * 删除单个商品
+	 */
+	@Override
+	public String deleteAGoodsService(Model model, Integer id) {
+		//商品有关联
+		if(adminGoodsDao.selectCartGoods(id).size() > 0 ||
+			adminGoodsDao.selectFocusGoods(id).size() > 0 || 
+			adminGoodsDao.selectOrderdetailGoods(id).size() > 0) {
+				model.addAttribute("msg", "商品有关联，不允许删除！");
+			return "forward:/adminGoods/selectGoods?act=deleteSelect";
+		}
+		adminGoodsDao.deleteAGoods(id);
+		model.addAttribute("msg", "成功删除商品！");
+		return "forward:/adminGoods/selectGoods?act=deleteSelect";
+	}
+	/**
+	 * 删除多个商品
+	 */
+	@Override
+	public String deleteGoods(Integer[] ids, Model model) {
+		List<Integer> list = new ArrayList<Integer>();
+		for (int i = 0; i < ids.length; i++) {
+			//商品有关联
+			if(adminGoodsDao.selectCartGoods(ids[i]).size() > 0 ||
+					adminGoodsDao.selectFocusGoods(ids[i]).size() > 0 || 
+					adminGoodsDao.selectOrderdetailGoods(ids[i]).size() > 0) {
+				model.addAttribute("msg", "商品有关联，不允许删除！");
+				return "forward:/adminGoods/selectGoods?act=deleteSelect";
+			}
+			list.add(ids[i]);
+		}
+		adminGoodsDao.deleteGoods(list);
+		model.addAttribute("msg", "成功删除商品！");
+		return "forward:/adminGoods/selectGoods?act=deleteSelect";
+	}
+
+	/**
+	 * 测试
+	 */
+	@Override
+	public String test(Model model) {
+		List<Goods> list= adminGoodsDao.selectGoods();
+		model.addAttribute("allgoods", list);
+		return "admin/test";
 	}
 	
 

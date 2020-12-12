@@ -23,5 +23,13 @@ public interface AdminGoodsDao {
 	public int addGoods(Goods goods);
 	//修改商品
 	public int updateGoodsById(Goods goods);
+	//删除单个商品
+	public int deleteAGoods(Integer id);
+	//删除多个商品
+	public int deleteGoods(List<Integer> ids);
+	
+	public List<Map<String, Object>> selectCartGoods(Integer id);
+	public List<Map<String, Object>> selectFocusGoods(Integer id);
+	public List<Map<String, Object>> selectOrderdetailGoods(Integer id);
 
 }
