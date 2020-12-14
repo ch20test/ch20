@@ -21,5 +21,5 @@ public class IndexServiceImpl implements IndexService{
 		model.addAttribute("lbuser", new Buser());
 		return "before/login";
 	}
-	
+
 }
