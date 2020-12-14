@@ -12,39 +12,8 @@
         http://www.springframework.org/schema/mvc 
         http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 	<!-- 使用扫描机制，扫描包 -->
-	<context:component-scan base-package="com.controller.admin" />
-	<context:component-scan base-package="com.controller.before" />
-<<<<<<< HEAD
-=======
-	
->>>>>>> branch 'master' of https://github.com/ch20test/ch20.git
+	<context:component-scan base-package="com.controller" />
 	<mvc:annotation-driven />
-<<<<<<< HEAD
-    <!-- 静态资源需要单独处理，不需要dispatcher servlet -->  
-    <mvc:resources location="/css/" mapping="/css/**"></mvc:resources> 
-    <mvc:resources location="/images/" mapping="/images/**"></mvc:resources> 
-    <!-- 查看图片时，logos文件夹不需要dispatcher servlet --> 
-    <mvc:resources location="/logos/" mapping="/logos/**"></mvc:resources>
-	<!-- 配置视图解析器 -->
-	<bean
-		class="org.springframework.web.servlet.view.InternalResourceViewResolver"
-		id="internalResourceViewResolver">
-		<!-- 前缀 -->
-		<property name="prefix" value="/WEB-INF/jsp/" />
-		<!-- 后缀 -->
-		<property name="suffix" value=".jsp" />
-	</bean>
-	
-	<!-- 配置MultipartResolver 用于文件上传 使用spring的CommosMultipartResolver -->  
-    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"  
-        p:defaultEncoding="UTF-8"  
-        p:maxUploadSize="5400000"  
-        p:uploadTempDir="fileUpload/temp" > 
-    </bean> 
-	<!-- 托管MyExceptionHandler -->
-	<bean class="com.exception.MyExceptionHandler"/>
-=======
-	<mvc:default-servlet-handler />
     <!-- 静态资源需要单独处理，不需要dispatcher servlet -->  
     <mvc:resources location="/css/" mapping="/css/**"></mvc:resources> 
     <mvc:resources location="/images/" mapping="/images/**"></mvc:resources> 
@@ -72,35 +41,4 @@ maxUploadSize="5400000" 是允许上传文件的最大值，单位为字节
 uploadTempDir="fileUpload/temp" 为上传文件的临时路径--> 
 	<!-- 托管MyExceptionHandler -->
 	<bean class="com.exception.MyExceptionHandler"/>
-	<!-- 格式转换 -->
-	<bean id="conversionService"
-      class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
-    </bean> 
-     
-     <mvc:annotation-driven conversion-service="conversionService"/>
-    
-    <!-- 配置消息属性文件 -->
-    <bean id="messageSource"
-    	class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
-    	
-    	<!-- 资源文件编码格式 -->
- <!--    	<property name="fileEncodings" value="utf-8"/>-->
-    	<property name="defaultEncoding" value="utf-8" />
-    	<!-- 对资源文件内容缓存的时间，单位为秒 -->
-    	<property name="cacheSeconds" value="120"/>	
-    </bean>
-    
-    <!-- 注册校验器 -->
-	<!-- 校验器 -->
-	 <bean id="validator"
-	  class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
-	  <!-- hibernate校验器-->
-	  <property name="providerClass" value="org.hibernate.validator.HibernateValidator" />
-	  <!-- 指定校验使用的资源文件，在文件中配置校验错误信息，如果不指定则默认使用classpath下的ValidationMessages.properties -->
-	  <property name="validationMessageSource" ref="messageSource" />
-	 </bean>
-
-	<!-- 开启Spring的Valid功能 -->
-	<mvc:annotation-driven conversion-service="conversionService" validator="validator"/>
->>>>>>> branch 'master' of https://github.com/ch20test/ch20.git
 </beans>
