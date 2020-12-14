@@ -1,10 +1,9 @@
 package com.util;
-
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
+import javax.servlet.http.HttpSession;
+import com.po.Buser;
 public class MyUtil {
-
 	/**
 	 * 获得时间字符串
 	 */
@@ -15,6 +14,11 @@ public class MyUtil {
 		id=sdf.format(date);
 		return id;
 	}
-	
-
+	/**
+	 * 获得用户ID
+	 */
+	public static Integer getUserId(HttpSession session) {
+		Buser ruser = (Buser)session.getAttribute("bruser");
+		return ruser.getId();
+	}
 }

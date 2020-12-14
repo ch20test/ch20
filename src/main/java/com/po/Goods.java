@@ -1,19 +1,30 @@
 package com.po;
 
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.NotBlank;
+import org.hibernate.validator.constraints.Range;
 import org.springframework.web.multipart.MultipartFile;
 
 public class Goods {
 	private Integer id;
 	//名称
+	@NotBlank(message="名称不能为空")
 	private String gname;
 	//原价
+	@NotNull(message="原价不能为空")
+	@Range(min=0,message="价格不得小于0")
 	private Double goprice;
 	//折扣价
+	@NotNull(message="折扣价不能为空")
+	@Range(min=0,message="价格不得小于0")
 	private Double grprice;
+	@Range(min=0,message="库存不得小于0")
 	private Integer gstore;
 	private MultipartFile logoImage;
 	private String gpicture;
 	private Integer goodstype_id;
+	//在根据id查询时使用
 	private String typename;
 	public Integer getId() {
 		return id;
@@ -69,6 +80,4 @@ public class Goods {
 	public void setTypename(String typename) {
 		this.typename = typename;
 	}
-	
-
 }

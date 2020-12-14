@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%
@@ -37,6 +38,34 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</table>
 			</div>
 		</div>
+<<<<<<< HEAD
+=======
+		
+		<!--红色 导航-->
+		<div class="skin_a">
+			<div class="front_daohangbj">
+				<div class="all_zong">
+					<div class="front_daohang">
+						<ul>
+							<li class="backbj"><a href="before?id=0">首页</a></li>
+							<!-- 显示商品类型 -->
+							<c:forEach items="${goodsType}" var="g">
+								<li><a href="before?id=${g.id }">
+								${g.typename }</a>
+								</li>
+							</c:forEach>
+							<li class="buy">
+								<p class="car">
+									<a href="cart/selectCart">购物车</a>
+								</p>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--红色 导航 end-->
+>>>>>>> branch 'master' of https://github.com/ch20test/ch20.git
 	</div>
 </body>
 </html>

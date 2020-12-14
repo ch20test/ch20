@@ -13,6 +13,10 @@
 <link href="css/before/common.css" rel="stylesheet" type="text/css" />
 <link href="css/before/style.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript">
+	//刷新验证码
+	function refreshCode(){
+		document.getElementById("code").src = "validateCode?" + Math.random();
+    }
 	//表单验证
 	function checkForm(){
 		var bpwd = document.registerForm.bpwd.value;
@@ -79,6 +83,15 @@
 								<td colspan="2" style="font-size: 12px; padding-bottom: 25px;">
 									（确保您记住密码。）</td>
 							</tr>				
+							<tr>
+								<td align="right"><span class="cl_f30">*</span> 验证码：</td>
+								<td class="ared"><input type="text" name="code"
+									id="textfield5" class="my_txt_120" />
+									<img id="code" src="validateCode" /> 
+									<a href="javascript:refreshCode();"><font color="blue">看不清，换一个！</font></a>
+								</td>
+								<td>${codeError}</td>
+							</tr>
 							<tr>
 								<td align="right">&nbsp;</td>
 								<td colspan="2" class="cl_f30" style="font-size: 12px; padding-bottom: 25px;"></td>

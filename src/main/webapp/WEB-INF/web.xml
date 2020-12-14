@@ -13,15 +13,28 @@ id="WebApp_ID" version="3.1">
   			classpath:applicationContext.xml
   		</param-value>
   	</context-param>
-
-<!-- 指定以ContextLoaderListener方式启动Spring容器 -->
+  	<!-- 指定以ContextLoaderListener方式启动Spring容器 -->
   	<listener>
   		<listener-class>
   			org.springframework.web.context.ContextLoaderListener
   		</listener-class>
   	</listener>
+  	
+<!--部署DispatcherServlet-->
+	<servlet>
+   	 	<servlet-name>springmvc</servlet-name>
+    	<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    	<!-- 表示容器在启动时立即加载servlet -->
+    	<load-on-startup>1</load-on-startup>
+	</servlet> 
+	<servlet-mapping>
+		<servlet-name>springmvc</servlet-name>
+		<!-- 处理所有URL-->
+    	<url-pattern>/</url-pattern>
+	</servlet-mapping>
 
-<!-- Spring字符集过滤器 -->
+<!-- Spring字符集过滤器 避免中文乱码 -->
+	<!-- 避免中文乱码 -->
 	<filter>
 		<filter-name>EncodingFilter</filter-name>
 		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
@@ -38,20 +51,4 @@ id="WebApp_ID" version="3.1">
 		<filter-name>EncodingFilter</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
-	
-	
-	
-<!--部署DispatcherServlet-->
-<servlet>
-    <servlet-name>springmvc</servlet-name>
-    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-    <!-- 表示容器在启动时立即加载servlet -->
-    <load-on-startup>1</load-on-startup>
-</servlet> 
-
-<servlet-mapping>
-	<servlet-name>springmvc</servlet-name>
-	<!-- 处理所有URL-->
-    <url-pattern>/</url-pattern>
-</servlet-mapping>
 </web-app>

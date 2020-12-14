@@ -18,3 +18,4 @@ public class Auser {
 		this.apwd = apwd;
 	}
 }
+

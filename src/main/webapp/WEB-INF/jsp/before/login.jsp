@@ -31,6 +31,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	function cancel(){
 		document.loginform.action="";
 	}
+	function refreshCode(){
+		document.getElementById("code").src = "validateCode?" + Math.random();
+    }
 	</script>
   </head>
   <body>
@@ -47,7 +50,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<tr>
 			<td>密码：</td>
 			<td><input type="password" name="bpwd" class="textSize"/></td>
-		</tr>				
+		</tr>		
+		<tr>
+			<td>验证码：</td>
+			<td><input type="text" name="code" class="textSize"/></td>
+		</tr>		
+		<tr>
+			<td>
+				<img id="code" src="validateCode"/>
+			</td>
+			<td class="ared">
+				<a href="javascript:refreshCode();"><font color="blue">看不清，换一个！</font></a>
+			</td>
+		</tr>		
 		<tr>
 			<td colspan="2">
 				<input type="image" src="images/admin/ok.gif" onclick="gogo()">

@@ -1,10 +1,12 @@
 package com.controller.admin;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -41,8 +43,34 @@ public class AdminGoodsController {
 	 * 添加与修改商品
 	 */
 	@RequestMapping("/addGoods")
-	public String addGoods(@ModelAttribute Goods goods,HttpServletRequest request,String updateAct){
-		return adminGoodsService.addOrUpdateGoodsService(goods,request,updateAct);
+	public String addGoods(@Valid @ModelAttribute Goods goods,BindingResult result,HttpServletRequest request,String updateAct){
+		if(result.hasErrors()){
+			return "admin/addGoods";
+		}else{
+			return adminGoodsService.addOrUpdateGoodsService(goods, request,updateAct);
+		}
 	}
-
+	/**
+	 * 删除单个商品
+	 */
+	@RequestMapping("/deleteAGoods")
+	public String deleteAGoods(Model model,Integer id){
+		return adminGoodsService.deleteAGoodsService(model,id);
+		
+	}
+	/**
+	 * 删除多个商品
+	 */
+	@RequestMapping("/deleteGoods")
+	public String deleteGoods(Integer ids[], Model model) {
+		return adminGoodsService.deleteGoods(ids, model);
+	}
+	
+	/**
+	 * 测试
+	 */
+	@RequestMapping("/test")
+	public String test(Model model){
+		return adminGoodsService.test(model);
+	}
 }

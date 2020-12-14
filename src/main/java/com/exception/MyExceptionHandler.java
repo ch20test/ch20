@@ -1,6 +1,5 @@
 package com.exception;
 import java.util.HashMap;
-
 import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -19,13 +18,13 @@ public class MyExceptionHandler implements HandlerExceptionResolver {
         	//登录页面需要auser对象
         	arg0.setAttribute("auser", new Auser());
         	arg0.setAttribute("msg", "没有登录，请登录！");
-        	return new ModelAndView("admin/login", model);
+        	return new ModelAndView("/admin/login", model);
         } else if(arg3 instanceof UserLoginNoException){
         	arg0.setAttribute("buser", new Buser());
         	arg0.setAttribute("msg", "没有登录，请登录！");
-        	return new ModelAndView("before/login", model);
+        	return new ModelAndView("/before/login", model);
        }else{  
-        	return new ModelAndView("error/error", model);  
+        	return new ModelAndView("/error/error", model);  
         }  
 	}
 }

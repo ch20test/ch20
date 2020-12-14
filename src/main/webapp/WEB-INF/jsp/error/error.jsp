@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isErrorPage="true"%>
 <%
 String path = request.getContextPath();
@@ -17,4 +18,3 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	exception.printStackTrace(response.getWriter());
 %>
 </body>
-</html>
