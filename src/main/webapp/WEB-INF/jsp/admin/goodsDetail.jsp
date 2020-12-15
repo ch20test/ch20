@@ -12,7 +12,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <title>Insert title here</title>
 </head>
 <body>
-	<table border=1 style="border-collapse: collapse">
+	<table border=1 style="border-collapse: collapse" style="font-size:20px align:center">
 		<caption>
 			<font size=4>商品详情</font>
 		</caption>

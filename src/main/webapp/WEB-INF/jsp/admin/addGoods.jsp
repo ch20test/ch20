@@ -9,7 +9,7 @@
 </head>
 <body>
 <form:form  modelAttribute="goods" action="${pageContext.request.contextPath}/adminGoods/addGoods" method="post" enctype="multipart/form-data">
-<table border=1 style="border-collapse: collapse">
+<table border=1 style="border-collapse: collapse" style="font-size:20px align:center">
 	<tr>
 		<td>名称</td>
 		<td><form:input path="gname"/></td>

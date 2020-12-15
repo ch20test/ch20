@@ -24,7 +24,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		您还没有类型。
 	</c:if>
 	<c:if test="${allTypes.size() != 0 }">
-		<table border="1" bordercolor="PaleGreen" >
+		<table border="1" bordercolor="black" style="font-size:20px align:center">
 			<tr>
 				<th width="200px">类型ID</th>
 				<th width="300px">类型名称</th>

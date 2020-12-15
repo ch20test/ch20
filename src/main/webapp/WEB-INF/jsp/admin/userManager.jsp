@@ -38,7 +38,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <body>
 	<br>
-	<table border="1" bordercolor="black">
+	<table border="1" bordercolor="black" style="font-size:20px align:center">
 		<tr>
 			<th width="200px">用户ID</th>
 			<th width="200px">用户E-mail</th>
