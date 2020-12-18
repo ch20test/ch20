@@ -32,11 +32,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<div class="top10List clearfix">
 						<c:forEach items="${salelist }" var="sg" varStatus="status">
 							<ul class="clearfix">
-
-								<li>
-								<a><img class="iteration" src="images/before/top_${status.index+1 }.gif" /></a>
-								</li>
-								
+								<img class="iteration" src="images/before/top_${status.index+1 }.gif" />
 								<li class="topimg">
 								<a href="goodsDetail?id=${sg.id }"> 
 									<img class="samllimg" alt="" src="logos/${sg.gpicture}" /></a></li>
@@ -59,11 +55,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<div class="top10List clearfix">
 					<c:forEach items="${focuslist }" var="sg" varStatus="status">
 						<ul class="clearfix">
-						
-						<li>
-							<a><img class="iteration" src="images/before/top_${status.index+1 }.gif" /></a>
-							</li>
-							
+							<img class="iteration" src="images/before/top_${status.index+1 }.gif" />
 							<li class="topimg">
 							<a href="goodsDetail?id=${sg.id }"> 
 								<img class="samllimg" alt="" src="logos/${sg.gpicture}" /></a></li>
