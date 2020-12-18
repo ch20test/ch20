@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%
@@ -10,6 +9,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <head>
 <base href="<%=basePath%>">
 <title>首页</title>
+<link href="css/before/daohang.css" rel="stylesheet" type="text/css" />
+<link href="css/before/common.css" rel="stylesheet" type="text/css" />
+<link href="css/before/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+	function clearValue(){
+		document.myForm.mykey.value = "";
+	}
+</script>
 </head>
 <body>
 	<div class="all_zong">
@@ -29,6 +36,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								<a href="toRegister">注册</a>
 							</p>
 						</td>
+						<td><span class="xx">|</span><a href="userCenter">用户中心</a><span
+							class="xx">|</span></td>
 						<!-- 没有登录 -->
 						<c:if test="${bruser!= null}">	
 						<td><a href="user/exit">退出</a><span
@@ -38,9 +47,26 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</table>
 			</div>
 		</div>
-<<<<<<< HEAD
-=======
-		
+		<!--end-->
+		<!--logo 搜索-->
+		<div class="all_zong_logo">
+			<div class="all_zong_logo2">
+				<img src="images/before/mylogo.png" />
+			</div>
+			<div class="back_search">
+				<div class="back_search_red">
+					<form action="search" name="myForm" method="post">
+						<div class="div2">
+							<input type="text" name="mykey" class="txt" value="请输入您要查询的内容"  onfocus="clearValue()" />
+						</div>
+						<div class="div1">
+							<input type="submit" class="an"  value="搜索" />
+						</div>
+					</form>
+				</div>
+			</div>
+			<!--end-->
+		</div>
 		<!--红色 导航-->
 		<div class="skin_a">
 			<div class="front_daohangbj">
@@ -65,7 +91,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</div>
 		</div>
 		<!--红色 导航 end-->
->>>>>>> branch 'master' of https://github.com/ch20test/ch20.git
 	</div>
 </body>
 </html>
