@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form:form  modelAttribute="goods" action="adminGoods/addGoods" method="post">
+<form:form  modelAttribute="goods" action="adminGoods/addGoods" method="post" style="font-size:20px align:center">
 	<tr>
 		<td>名称</td>
 		<td><form:input path="gname"/></td>

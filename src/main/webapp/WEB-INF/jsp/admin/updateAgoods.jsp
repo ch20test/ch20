@@ -11,7 +11,7 @@
 </head>
 <body>
 <form:form modelAttribute="goods" action="${pageContext.request.contextPath}/adminGoods/addGoods?updateAct=update" method="post" enctype="multipart/form-data">
-	<table>
+	<table style="font-size:20px align:center">
 			<tr>
 				<td>名称</td>
 				<td>

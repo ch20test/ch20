@@ -55,7 +55,7 @@
 <body>
 <c:if test="${allgoods.size()==0}">您还没有商品</c:if>
 	<c:if test="${allgoods.size()!=0 }">
-		<form action="adminGoods/deleteGoods" name="deleteForm">
+		<form action="adminGoods/deleteGoods" name="deleteForm" style="font-size:20px align:center">
 			<table border="1">
 				<tr>
 					<th width="100px">ID</th>

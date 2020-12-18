@@ -11,7 +11,7 @@
 <body>
 <c:if test="${allgoods.size()==0}">您还没有商品</c:if>
 	<c:if test="${allgoods.size()!=0 }">
-		<table border="1">
+		<table border="1" style="font-size:20px align:center">
 			<tr>
 				<th width="100px">ID</th>
 				<th width="200px">名称</th>
