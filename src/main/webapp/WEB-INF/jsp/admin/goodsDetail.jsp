@@ -45,7 +45,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<td>
 				<c:if test="${agoods.gpicture != '' }">
 					<img alt="" width="250" height="250"
-					src="logos/${goods.gpicture}"/>
+					src="${goods.gpicture}"/>
 				</c:if>
 			</td>
 		</tr>
