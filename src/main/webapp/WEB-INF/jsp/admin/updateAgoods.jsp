@@ -1,25 +1,34 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page  isELIgnored="false"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Insert title here</title>
-</head>
+<base href="<%=basePath%>">
+<title>updateAgoods.jsp</title>
+<link href="css/admin/common.css" type="text/css" rel="stylesheet">
+</head>    
 <body>
-<form:form modelAttribute="goods" action="${pageContext.request.contextPath}/adminGoods/addGoods?updateAct=update" method="post" enctype="multipart/form-data">
-	<table style="font-size:20px align:center">
+	<form:form  modelAttribute="goods" action="adminGoods/addGoods?updateAct=update" method="post" enctype="multipart/form-data">
+		<table style="font-size:20px align:center">
 			<tr>
-				<td>名称</td>
+				<td>ID<font color="red">*</font></td>
+				<td>
+					<form:input readonly="true" path="id"/>
+				</td>
+			</tr>
+			<tr>
+				<td>名称<font color="red">*</font></td>
 				<td>
 					<form:input path="gname"/>
 				</td>
 			</tr>
 			<tr>
-				<td>原价</td>
+				<td>原价<font color="red">*</font></td>
 				<td>
 					<form:input path="goprice"/>
 				</td>
@@ -65,6 +74,7 @@
 				</td>
 			</tr>
 		</table>
-</form:form>
+	</form:form>
+	${msg }
 </body>
 </html>
