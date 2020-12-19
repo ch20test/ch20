@@ -16,8 +16,6 @@ public class Goods {
 	@Range(min=0,message="价格不得小于0")
 	private Double goprice;
 	//折扣价
-	@NotNull(message="折扣价不能为空")
-	@Range(min=0,message="价格不得小于0")
 	private Double grprice;
 	@Range(min=0,message="库存不得小于0")
 	private Integer gstore;

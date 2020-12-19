@@ -13,11 +13,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	margin: 0px;
 	padding: 0px;
 }
+
 body {
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 12px;
 	background-image:url(images/admin/timg.jpg);
 }
+
+
 #navigator .link a {
 	color: #eee;
 	display: block;
@@ -28,6 +31,7 @@ body {
 	text-align: center;
 	float: right;
 }
+
 #navigator {
 	width:300px;
 	font-size: 14px; 
@@ -65,21 +69,25 @@ body {
    	background-color: #333;
 	box-shadow: 0 1px 10px rgba(0, 0, 0, 0.3);
 }
+
 #navigator ul li:hover ul,
 #navigator ul a:hover ul{
    visibility: visible;
 }
+
 #content {
 	width:1850px;
 	height:780px;
 	text-align:center;
 	margin:0 auto;
 }
+
 #content iframe {
 	margin-top:250px;
 	height:700px;
 	width: 1000px;
 }
+
 #zzz {
 	height:250px;
 }
@@ -126,3 +134,5 @@ body {
 	</div>
 </body>
 </html>
+
+

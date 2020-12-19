@@ -1,5 +1,7 @@
 package com.service.before;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,11 +14,11 @@ import com.dao.AdminTypeDao;
 import com.dao.IndexDao;
 import com.po.Buser;
 import com.po.Goods;
+import com.po.Notice;
 
 @Service("indexService")
 @Transactional
 public class IndexServiceImpl implements IndexService{
-
 	@Autowired
 	private IndexDao indexDao;
 	@Autowired
@@ -34,7 +36,7 @@ public class IndexServiceImpl implements IndexService{
 		model.addAttribute("lastedlist", indexDao.getLastedGoods(goods));
 		return "before/index";
 	}
-	
+
 	@Override
 	public String toRegister(Model model) {
 		model.addAttribute("rbuser", new Buser());
@@ -47,4 +49,25 @@ public class IndexServiceImpl implements IndexService{
 		return "before/login";
 	}
 
+	@Override
+	public String goodsDetail(Model model, Integer id) {
+		Goods goods = indexDao.selectGoodsById(id);
+		model.addAttribute("goods", goods);
+		return "before/goodsdetail";
+	}
+
+	@Override
+	public String selectANotice(Model model, Integer id) {
+		Notice notice = adminNoticeDao.selectANotice(id);
+		model.addAttribute("notice", notice);
+		return "admin/noticeDetail";
+	}
+
+	@Override
+	public String search(Model model, String mykey) {
+		List<Goods> list = indexDao.search(mykey);
+		model.addAttribute("searchlist", list);
+		return "before/searchResult";
+	}
+	
 }
