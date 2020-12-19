@@ -8,7 +8,7 @@ import com.service.before.CartService;
 
 @Controller
 @RequestMapping("/cart")
-public class CartController {
+public class CartController extends BaseBeforeController{
 	@Autowired
 	private CartService cartService;
 	/**

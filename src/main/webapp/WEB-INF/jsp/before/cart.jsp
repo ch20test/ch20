@@ -65,7 +65,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<c:forEach var="ce" items="${cartlist}"> 
 						<tr>
 							<td bgcolor="#ffffff" align="center"><a href="goodsDetail?id=${ce.id}"> <img style="width: 100px; height: 100px;"
-							   src="logos/${ce.gpicture}" border="0"title="${ce.gname}" />
+							   src="${ce.gpicture}" border="0"title="${ce.gname}" />
 							</a><br/><a style="text-decoration: none;" href="goodsDetail?id=${ce.id}" class="f6">${ce.gname}</a></td>
 							
 							<td bgcolor="#ffffff" width="110px" align="center"><span>${ce.grprice}</span></td>

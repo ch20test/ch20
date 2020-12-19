@@ -25,7 +25,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	body {
 		font-family: Arial, Helvetica, sans-serif;
 		font-size: 12px;
-		margin: 10px 10px auto;
+		margin: 150px 10px auto;
 		background-image: url(images/admin/bb.jpg);
 	}
 	</style>
@@ -41,6 +41,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</script>
   </head>
   <body>
+  <center>
   	<form:form action="admin/login" modelAttribute="auser" method="post">
 	<table>
 		<tr>
@@ -67,5 +68,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</table>
 	</form:form>
 	${msg }
+	</center>
   </body>
 </html>
