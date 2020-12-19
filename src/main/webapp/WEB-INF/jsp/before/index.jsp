@@ -35,7 +35,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								<img class="iteration" src="images/before/top_${status.index+1 }.gif" />
 								<li class="topimg">
 								<a href="goodsDetail?id=${sg.id }"> 
-									<img class="samllimg" alt="" src="logos/${sg.gpicture}" /></a></li>
+									<img class="samllimg" alt="" src="${sg.gpicture}" /></a></li>
 								<li class="iteration1">
 								<a href="goodsDetail?id=${sg.id }">${sg.gname }</a><br />
 								 售价：<font class="f1">￥${sg.grprice }元</font><br /></li>
@@ -58,7 +58,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<img class="iteration" src="images/before/top_${status.index+1 }.gif" />
 							<li class="topimg">
 							<a href="goodsDetail?id=${sg.id }"> 
-								<img class="samllimg" alt="" src="logos/${sg.gpicture}" /></a></li>
+								<img class="samllimg" alt="" src="${sg.gpicture}" /></a></li>
 							<li class="iteration1">
 							<a href="goodsDetail?id=${sg.id }">${sg.gname }</a><br />
 							 售价：<font class="f1">￥${sg.grprice }元</font><br /></li>
@@ -111,7 +111,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 										<div>
 											<p class="pic">
 												<a href="goodsDetail?id=${sg.id }">
-												<img src="logos/${sg.gpicture}" /></a>
+												<img src="${sg.gpicture}" /></a>
 											</p>
 											<p class="wz">
 												<strong><a href="goodsDetail?id=${sg.id }">${sg.gname }</a></strong>
