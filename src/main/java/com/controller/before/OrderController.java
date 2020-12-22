@@ -11,7 +11,7 @@ import com.service.before.OrderService;
 
 @Controller
 @RequestMapping("/order")
-public class OrderController {
+public class OrderController extends BaseBeforeController{
 	@Autowired
 	private OrderService orderService;
 	

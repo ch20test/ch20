@@ -14,7 +14,7 @@ import com.po.Goods;
 import com.service.admin.AdminGoodsService;
 @Controller
 @RequestMapping("/adminGoods")
-public class AdminGoodsController {
+public class AdminGoodsController extends BaseController{
 	@Autowired
 	public AdminGoodsService adminGoodsService;
 	/**

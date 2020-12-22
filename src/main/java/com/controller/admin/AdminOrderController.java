@@ -9,7 +9,7 @@ import com.service.admin.AdminOrderService;
 
 @Controller
 @RequestMapping("/adminOrder")
-public class AdminOrderController {
+public class AdminOrderController extends BaseController{
 	@Autowired
 	private AdminOrderService adminOrderService;
 	@RequestMapping("/orderInfo")

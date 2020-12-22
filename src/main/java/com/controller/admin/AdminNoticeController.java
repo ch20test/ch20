@@ -9,7 +9,7 @@ import com.service.admin.AdminNoticeService;
 @Controller
 @RequestMapping("/adminNotice")
 
-public class AdminNoticeController{
+public class AdminNoticeController extends BaseController{
 	@Autowired
 	private AdminNoticeService adminNoticeService;
 	@RequestMapping("/toAddNotice")
