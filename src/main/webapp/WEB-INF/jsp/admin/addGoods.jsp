@@ -9,7 +9,7 @@
 </head>
 <body>
 <form:form  modelAttribute="goods" action="${pageContext.request.contextPath}/adminGoods/addGoods" method="post" enctype="multipart/form-data">
-<table border=1 style="border-collapse: collapse" style="font-size:35px align:center ">
+<table border=1 style="font-size:35px align:center ">
 	<tr>
 		<td style="font-size:26px">名称</td>
 		<td><form:input style="width:545px;height:35px" path="gname"/></td>
@@ -43,8 +43,8 @@
 		</td>
 	</tr>
 	<tr>
-		<td align="center"><input type="submit" value="提交" style="font-size:26px"></td>
-		<td align="center"><input type="reset" value="重置" style="font-size:26px"></td>
+		<td align="center"><input type="submit" value="提交" style="font-size:24px"></td>
+		<td align="center"><input type="reset" value="重置" style="font-size:24px"></td>
 	</tr>
 </table>
 </form:form>

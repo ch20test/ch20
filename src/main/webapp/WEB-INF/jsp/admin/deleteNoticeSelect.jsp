@@ -12,7 +12,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<style type="text/css">
 		table{
 			text-align: center;
-			border-collapse: collapse;
 		}
 		.bgcolor{
 		  	background-color: #F08080;

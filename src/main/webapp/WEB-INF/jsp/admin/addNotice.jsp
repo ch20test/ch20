@@ -12,18 +12,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </head>
 <body>
 	<form:form action="adminNotice/addNotice" method="post" modelAttribute="notice">
-		<table border=1 style="border-collapse: collapse" style="font-size:20px align:center">
+		<table border=1 style="border-collapse: collapse" style=" align:center">
 			<caption>
 				<font size=6 face=华文新魏>添加公告</font>
 			</caption>
 			<tr>
-				<td width="200px" height="50px" style="font-size:22px align:center">标题<font color="red">*</font></td>
-				<td width="200px" height="50px" style="font-size:22px">
+				<td width="200px" height="50px" style="font-size:26px">标题<font color="red">*</font></td>
+				<td width="200px" height="50px" style="font-size:26px">
 					<form:input path="ntitle"/>
 				</td>
 			</tr>
 			<tr>
-				<td width="200px" height="50px" style="font-size:22px align:center">内容<font color="red">*</font></td>
+				<td width="200px" height="50px" style="font-size:26px">内容<font color="red">*</font></td>
 				<td width="200px" height="50px" style="font-size:22px">
 					<form:textarea path="ncontent"/>
 				</td>
