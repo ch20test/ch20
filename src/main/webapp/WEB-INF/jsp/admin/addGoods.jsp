@@ -35,11 +35,11 @@
 		<td><input type="file" style="width:545px;height:35px font-size:26px" name="logoImage"/></td>
 	</tr>
 	<tr>
-		<td style="font-size:26px">类型</td>
+		<td>类型</td>
 		<td>
 			<form:select path="goodstype_id">
-				<form:options item="${goodsType}" itemLabel="typename" itemValue="id"/>
-			</form:select>
+         	<form:options items="${goodsType }" itemLabel="typename" itemValue="id"/>
+   			</form:select>
 		</td>
 	</tr>
 	<tr>
