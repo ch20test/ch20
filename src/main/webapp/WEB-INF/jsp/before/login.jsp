@@ -18,8 +18,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		text-align: center;
 	}
 	.textSize{
-		width: 200px;
-		height: 20px;
+		width: 300px;
+		height: 30px;
+	}
+	* {
+		margin: 3px;
+		padding: 1px;
 	}
 	</style>
 	<script type="text/javascript">

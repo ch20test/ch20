@@ -15,12 +15,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		text-align: center;
 	}
 	.textSize{
-		width: 120px;
-		height: 25px;
+		width: 200px;
+		height: 30px;
 	}
 	* {
-		margin: 0px;
-		padding: 0px;
+		margin: 3px;
+		padding: 1px;
 	}
 	body {
 		font-family: Arial, Helvetica, sans-serif;
@@ -43,7 +43,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <body>
   <center>
   	<form:form action="admin/login" modelAttribute="auser" method="post">
-	<table>
+	<table style="font-size: 20px">
 		<tr>
 			<td colspan="2"><img src="images/admin/login.gif"></td>
 		</tr>
@@ -61,8 +61,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</tr>
 		<tr>
 			<td colspan="2">
-				<input type="image" src="images/admin/ok.gif" onclick="gogo()" >
-				<input type="image" src="images/admin/cancel.gif" onclick="cancel()" >
+				<input type="image" src="images/admin/ok.gif" onclick="gogo()">
+				<input type="image" src="images/admin/cancel.gif" onclick="cancel()">
 			</td>
 		</tr>
 	</table>
