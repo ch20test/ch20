@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.service.admin.AdminTypeService;
 @Controller
 @RequestMapping("/adminType")
-public class AdminTypeController {
+public class AdminTypeController extends BaseController{
 	@Autowired
 	private AdminTypeService adminTypeService;
 	/**

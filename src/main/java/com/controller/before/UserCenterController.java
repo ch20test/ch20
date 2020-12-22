@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.service.before.UserCenterService;
 
 @Controller
-public class UserCenterController{
+public class UserCenterController extends BaseBeforeController{
 	@Autowired
 	private UserCenterService userCenterService;
 	
