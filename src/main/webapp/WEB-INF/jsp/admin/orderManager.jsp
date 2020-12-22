@@ -13,7 +13,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<style type="text/css">
 		table{
 			text-align: center;
-			border-collapse: collapse
 		}
 		.bgcolor{
 		  	background-color: #F08080;
@@ -37,21 +36,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<br>
 	<table border="1" bordercolor="black" style="font-size:20px align:center">
 		<tr>
-			<th width="150px">订单编号</th>
-			<th width="150px">用户E-mail</th>
-			<th width="100px">订单金额</th>
-			<th width="100px">订单状态</th>
-			<th width="150px">订单日期</th>
-			<th width="100px">操作</th>
+			<th width="200px" height="50px" style="font-size:22px">订单编号</th>
+			<th width="200px" height="50px" style="font-size:22px">用户E-mail</th>
+			<th width="200px" height="50px" style="font-size:22px">订单金额</th>
+			<th width="200px" height="50px" style="font-size:22px">订单状态</th>
+			<th width="200px" height="50px" style="font-size:22px">订单日期</th>
+			<th width="200px" height="50px" style="font-size:22px">操作</th>
 		</tr>
 		<c:forEach var="n" items="${orderList}">
 		<tr onmousemove="changeColor(this)" onmouseout="changeColor1(this)">
-			<td>${n.id}</td>
-			<td>${n.bemail}</td>
-			<td>${n.amount}</td>
-			<td><c:if test="${n.status == 0}" >未付款</c:if><c:if test="${n.status == 1}" >已付款</c:if></td>
-			<td>${n.orderdate}</td>
-			<td>
+			<td width="200px" height="50px" style="font-size:22px">${n.id}</td>
+			<td width="200px" height="50px" style="font-size:22px">${n.bemail}</td>
+			<td width="200px" height="50px" style="font-size:22px">${n.amount}</td>
+			<td width="200px" height="50px" style="font-size:22px"><c:if test="${n.status == 0}" >未付款</c:if><c:if test="${n.status == 1}" >已付款</c:if></td>
+			<td width="200px" height="50px" style="font-size:22px">${n.orderdate}</td>
+			<td width="200px" height="50px" style="font-size:22px">
 				<c:if test="${n.status == 0}" >
 					<a href="javaScript:checkDel('${n.id}')">删除</a>
 				</c:if>

@@ -14,25 +14,25 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<form:form action="adminNotice/addNotice" method="post" modelAttribute="notice">
 		<table border=1 style="border-collapse: collapse" style="font-size:20px align:center">
 			<caption>
-				<font size=4 face=华文新魏>添加公告</font>
+				<font size=6 face=华文新魏>添加公告</font>
 			</caption>
 			<tr>
-				<td>标题<font color="red">*</font></td>
-				<td>
+				<td width="200px" height="50px" style="font-size:22px align:center">标题<font color="red">*</font></td>
+				<td width="200px" height="50px" style="font-size:22px">
 					<form:input path="ntitle"/>
 				</td>
 			</tr>
 			<tr>
-				<td>内容<font color="red">*</font></td>
-				<td>
+				<td width="200px" height="50px" style="font-size:22px align:center">内容<font color="red">*</font></td>
+				<td width="200px" height="50px" style="font-size:22px">
 					<form:textarea path="ncontent"/>
 				</td>
 			</tr>
 			<tr>
-				<td align="center">
+				<td align="center" width="200px" height="50px" style="font-size:22px">
 					<input type="submit" value="提交"/>
 				</td>
-				<td align="left">
+				<td align="left" width="200px" height="50px" style="font-size:22px">
 					<input type="reset" value="重置"/>
 				</td>
 			</tr>

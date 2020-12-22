@@ -13,7 +13,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<style type="text/css">
 		table{
 			text-align: center;
-			border-collapse: collapse
 		}
 		.bgcolor{
 		  	background-color: lightblue;
@@ -38,19 +37,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <body>
 	<br>
-	<table border="1" bordercolor="black" style="font-size:20px align:center">
+	<table border="1" bordercolor="black" style="align:center">
 		<tr>
-			<th width="200px">用户ID</th>
-			<th width="200px">用户E-mail</th>
-			<th width="200px">用户密码</th>
-			<th width="250px">删除</th>
+			<th width="200px" height="50px" style="font-size:22px">用户ID</th>
+			<th width="200px" height="50px" style="font-size:22px">用户E-mail</th>
+			<th width="200px" height="50px" style="font-size:22px">用户密码</th>
+			<th width="250px" height="50px" style="font-size:22px">删除</th>
 		</tr>
 		<c:forEach var="n" items="${userList}">
 		<tr onmousemove="changeColor(this)" onmouseout="changeColor1(this)">
-			<td>${n.id}</td>
-			<td>${n.bemail}</td>
-			<td><input type="password" value="${n.bpwd}" readonly></td>
-			<td>
+			<td width="200px" height="50px" style="font-size:22px">${n.id}</td>
+			<td width="200px" height="50px" style="font-size:22px">${n.bemail}</td>
+			<td width="200px" height="50px" style="font-size:22px"><input type="password" value="${n.bpwd}" readonly></td>
+			<td width="200px" height="50px" style="font-size:22px">
 				<a href="javaScript:checkDel('${n.id}')">删除</a>
 			</td>
 		</tr>
