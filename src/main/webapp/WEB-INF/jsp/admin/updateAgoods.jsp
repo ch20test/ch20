@@ -14,7 +14,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </head>    
 <body>
 	<form:form  modelAttribute="goods" action="adminGoods/addGoods?updateAct=update" method="post" enctype="multipart/form-data">
-		<table style="font-size:20px align:center">
+		<table border=1 style="border-collapse: collapse" style="font-size:20px align:center">
 			<tr>
 				<td>ID<font color="red">*</font></td>
 				<td>

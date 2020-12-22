@@ -123,7 +123,7 @@ public class AdminGoodsServiceImpl implements AdminGoodsService {
 		//修改，updateAct不能与act重名，因为使用了转发
 		if("update".equals(updateAct)){
 			int id = goods.getId();
-//			logger.info("修改页面");
+			//logger.info("修改页面");
 			//修改到数据库
 			if(adminGoodsDao.updateGoodsById(goods) > 0){
 				logger.info("修改成功");
