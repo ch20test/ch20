@@ -62,7 +62,7 @@
 									（有效的E-mail地址才能收到激活码，帐户在激活后才能享受网站服务。）</td>
 							</tr>
 							<tr>
-								<td align="right"><span class="cl_f30">*</span> 密码：</td>
+								<td align="right"><span class="cl_f30"></span> 密码：</td>
 								<td><input type="password" name="bpwd" id="textfield2"
 									class="my_txt_350" /></td>
 								<td>&nbsp;</td>
@@ -73,7 +73,7 @@
 									（为了您帐户的安全，建议使用字符+数字等多种不同类型的组合，且长度大于5位。）</td>
 							</tr>
 							<tr>
-								<td align="right"><span class="cl_f30">*</span> 重复密码：</td>
+								<td align="right"><span class="cl_f30"></span> 重复密码：</td>
 								<td><input type="password" name="rebpwd" id="textfield3"
 									class="my_txt_350" /></td>
 								<td>&nbsp;</td>
@@ -84,7 +84,7 @@
 									（确保您记住密码。）</td>
 							</tr>				
 							<tr>
-								<td align="right"><span class="cl_f30">*</span> 验证码：</td>
+								<td align="right"><span class="cl_f30"></span> 验证码：</td>
 								<td class="ared"><input type="text" name="code"
 									id="textfield5" class="my_txt_120" />
 									<img id="code" src="validateCode" /> 

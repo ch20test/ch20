@@ -44,9 +44,12 @@ public class AdminGoodsController extends BaseController{
 	 */
 	@RequestMapping("/addGoods")
 	public String addGoods(@Valid @ModelAttribute Goods goods,BindingResult result,HttpServletRequest request,String updateAct){
-		if(result.hasErrors()){
+		if(result.hasErrors() && "update".equals(updateAct)){
+			return "admin/updateAgoods";
+		}else if(result.hasErrors()){
 			return "admin/addGoods";
-		}else{
+		}
+		else{
 			return adminGoodsService.addOrUpdateGoodsService(goods, request,updateAct);
 		}
 	}

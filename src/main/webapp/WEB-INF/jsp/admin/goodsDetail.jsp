@@ -12,7 +12,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <title>Insert title here</title>
 </head>
 <body>
-	<table border=1 style="border-collapse: collapse" style="font-size:20px align:center">
+	<table border=1 style="border-collapse: collapse" style="font-size:28px align:center">
 		<caption>
 			<font size=4>商品详情</font>
 		</caption>
@@ -43,7 +43,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<tr>
 			<td>图片</td>
 			<td>
-				<c:if test="${agoods.gpicture != '' }">
+				<c:if test="${goods.gpicture != '' }">
 					<img alt="" width="250" height="250"
 					src="${goods.gpicture}"/>
 				</c:if>

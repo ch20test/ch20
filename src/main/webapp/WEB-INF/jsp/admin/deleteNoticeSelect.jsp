@@ -28,7 +28,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<script type="text/javascript">
   		function checkDel(id){
   			if(window.confirm("是否删除该公告？")){
-  				window.location.href = "/ch30/adminNotice/deleteNotice?id="+id;
+  				window.location.href = "/ch20/adminNotice/deleteNotice?id="+id;
   			}
   		}
   </script>

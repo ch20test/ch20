@@ -16,7 +16,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<form:form  modelAttribute="goods" action="adminGoods/addGoods?updateAct=update" method="post" enctype="multipart/form-data">
 		<table border=1 style="border-collapse: collapse" style="font-size:20px align:center">
 			<tr>
-				<td>ID<font color="red">*</font></td>
+				<td>ID<font color="black">*</font></td>
 				<td>
 					<form:input readonly="true" path="id"/>
 				</td>
@@ -26,12 +26,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<td>
 					<form:input path="gname"/>
 				</td>
+				<td><form:errors path="gname"></form:errors></td>
 			</tr>
 			<tr>
 				<td>原价<font color="red">*</font></td>
 				<td>
 					<form:input path="goprice"/>
 				</td>
+				<td><form:errors path="goprice"></form:errors></td>
 			</tr>
 			<tr>
 				<td>折扣价</td>
@@ -44,6 +46,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<td>
 					<form:input path="gstore"/>
 				</td>
+				<td><form:errors path="gstore"></form:errors></td>
 			</tr>
 			<tr>
 				<td>图片</td>
@@ -53,7 +56,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<!-- 从数据库取出的文件名 -->
 					<c:if test="${goods.gpicture != ''}">
 						<img alt="" width="50" height="50"
-						src="logos/${goods.gpicture}"/>
+						src="${goods.gpicture}"/>
 					</c:if>	
 				</td>
 			</tr>

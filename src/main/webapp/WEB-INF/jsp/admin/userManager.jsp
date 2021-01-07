@@ -37,7 +37,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <body>
 	<br>
-	<table border="1" bordercolor="black" style="align:center">
+	<table border="1" bordercolor="black" style="font-size:20px align:center">
 		<tr>
 			<th width="200px" height="50px" style="font-size:22px">用户ID</th>
 			<th width="200px" height="50px" style="font-size:22px">用户E-mail</th>
@@ -55,7 +55,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</tr>
 		</c:forEach>
 		<tr>
-			<td colspan="4">${msg}</td>
+			<td colspan="6">${msg}</td>
 		</tr>
 	</table>
 </body>

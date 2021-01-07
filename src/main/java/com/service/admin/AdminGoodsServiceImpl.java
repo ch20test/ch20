@@ -150,7 +150,7 @@ public class AdminGoodsServiceImpl implements AdminGoodsService {
 	 */
 	@Override
 	public String deleteAGoodsService(Model model, Integer id) {
-		//商品有关联
+		//商品有关联，购物车、关注、订单
 		if(adminGoodsDao.selectCartGoods(id).size() > 0 ||
 			adminGoodsDao.selectFocusGoods(id).size() > 0 || 
 			adminGoodsDao.selectOrderdetailGoods(id).size() > 0) {
